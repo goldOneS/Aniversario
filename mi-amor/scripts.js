@@ -18,7 +18,7 @@ function actualizarTiempoJuntos() {
   }
 
   const h1 = document.querySelector("h1");
-  h1.textContent = `Feliz ${años} año${años !== 1 ? "s" : ""}, ${meses} mes${meses !== 1 ? "es" : ""} y ${dias} día${dias !== 1 ? "s" : ""}, mi amor 💖`;
+  h1.textContent = `Feliz ${años} año${años !== 1 ? "s" : ""}, ${meses} mes${meses !== 1 ? "es" : ""} y ${dias} día${dias !== 1 ? "s" : ""}, mi amor Hermosa 💖`;
 }
   actualizarTiempoJuntos();
   setInterval(actualizarTiempoJuntos, 1000 * 60 * 60 * 24);
