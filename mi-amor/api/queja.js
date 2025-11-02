@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
     const body = {
       chat_id: CHAT_ID,
-      text: `💌 Nueva queja de tu pareja:\n\n${mensaje}`,
+      text: `💌 Nuevo mensaje de tu pareja:\n\n${mensaje}`,
     };
 
     const response = await fetch(url, {
@@ -25,9 +25,9 @@ export default async function handler(req, res) {
 
     if (!data.ok) throw new Error(data.description);
 
-    res.status(200).json({ ok: true, message: "Queja enviada correctamente 💖" });
+    res.status(200).json({ ok: true, message: "Mensaje enviada correctamente 💖" });
   } catch (error) {
     console.error("Error enviando a Telegram:", error);
-    res.status(500).json({ ok: false, error: "No se pudo enviar la queja 😢" });
+    res.status(500).json({ ok: false, error: "No se pudo enviar el mensaje 😢" });
   }
 }
