@@ -3,6 +3,7 @@
 export default async function handler(req, res) {
   try {
     // 🌼 Personalización por fecha
+        const fecha = new Date().toLocaleDateString("es-ES", { dateStyle: "long" });
     const prompt = `Escribe un poema romántico, tierno y en español para mi pareja, inspirado en la fecha de hoy (${fecha}) recuerda no poner ninguna respuesta asi "Claro, aquí tienes un poema romántico y tierno, inspirado en esta fecha especial de noviembre:"`;
 
     // ✨ Llamada a Pollinations
@@ -23,5 +24,6 @@ export default async function handler(req, res) {
     });
   }
 }
+
 
 
