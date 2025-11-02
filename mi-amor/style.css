@@ -49,7 +49,7 @@
       margin-top: 0;
       font-weight: 700;
       color: #c51759;
-      display: block;
+      display: flex;
       gap: .4rem;
       align-items: center;
       font-size: 1.1rem;
