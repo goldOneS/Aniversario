@@ -69,21 +69,17 @@ function actualizarTiempoJuntos() {
 
     //Poema
 async function cargarPoema() {
-  const poemaEl = document.getElementById("poema");
-  if (!poemaEl) return; // por si aún no existe en el DOM
-
-  poemaEl.textContent = "Cargando poema de amor... 💌";
+  const poemaEl = document.querySelector("#poema");
 
   try {
-    const respuesta = await fetch("/api/poema");
-    const data = await respuesta.json();
+    const res = await fetch("/api/poema");
+    const data = await res.json();
 
-    poemaEl.textContent = data.poema;
-  } catch (error) {
-    poemaEl.textContent = "No se pudo cargar el poema hoy 😢";
-    console.error("Error al obtener el poema:", error);
+    poemaEl.textContent = data.poema.trim();
+  } catch (err) {
+    poemaEl.textContent = "Hoy no se pudo cargar el poema 😢";
   }
 }
 
-// 🔹 Ejecutar al cargar la página
-document.addEventListener("DOMContentLoaded", cargarPoema);
+// Ejecuta cuando cargue la página
+cargarPoema();
