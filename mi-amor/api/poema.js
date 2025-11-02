@@ -2,15 +2,11 @@
 
 export default async function handler(req, res) {
   try {
-    // 🌼 4. Opcional: personalizar
-    // Puedes ajustar el prompt para que sea más específico:
-    // const prompt = "Escribe un poema romántico en español sobre amor verdadero, para dedicarle a mi pareja hoy.";
-
-    // Incluso puedes usar la fecha para hacerlo distinto cada día:
+    // 🌼 Personalización por fecha
     const fecha = new Date().toLocaleDateString("es-ES", { dateStyle: "long" });
-    const prompt = `Escribe un poema romántico para mi pareja, inspirado en la fecha de hoy (${fecha}).`;
+    const prompt = `Escribe un poema romántico, tierno y en español para mi pareja, inspirado en la fecha de hoy (${fecha}).`;
 
-    // ✨ Llamada a Pollinations.AI (sin API key, totalmente gratis)
+    // ✨ Llamada a Pollinations
     const response = await fetch(
       `https://text.pollinations.ai/${encodeURIComponent(prompt)}`
     );
@@ -24,7 +20,7 @@ export default async function handler(req, res) {
     console.error("Error en /api/poema:", error);
     res.status(200).json({
       poema:
-        "Hoy no se pudo generar un poema, pero mi amor sigue tan fuerte como siempre 💖",
+        "Hoy no se pudo generar un poema, pero mi amor por ti sigue igual de fuerte 💖",
     });
   }
 }
