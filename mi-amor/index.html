@@ -15,105 +15,15 @@
 
   <div class="card">
     <h2>🌹 Para ti 🌹</h2>
-    <p>
-Te elegí cada día
-y te volvería a elegir.
-
-Porque contigo
-lo simple se vuelve bonito,
-los días pesados se hacen ligeros,
-y mi vida tiene nombre y sonrisa.
-
-Gracias por 1 año y 7 meses
-de paciencia, risas y abrazos largos.
-Eres mi lugar seguro,
-mi mensajito favorito
-y mi casualidad más bonita. 💘
-    </p>
+<p id="poema">Cargando poema de amor... 💌</p>
 
     <button class="btn-rosas" id="btn-more">Lanzar más rosas 🌹</button>
   </div>
 
   <!-- contenedor de rosas -->
-  <div class="roses-container" id="roses"></div>
+    <div class="roses-container" id="roses"></div>
 
-  <script>
-  function actualizarTiempoJuntos() {
-    const inicio = new Date(2023, 3, 1); // Mes 3 = abril (0 = enero)
-    const hoy = new Date();
 
-    let años = hoy.getFullYear() - inicio.getFullYear();
-    let meses = hoy.getMonth() - inicio.getMonth();
-    let dias = hoy.getDate() - inicio.getDate();
-
-    if (dias < 0) {
-      meses--;
-      const ultimoMes = new Date(hoy.getFullYear(), hoy.getMonth(), 0);
-      dias += ultimoMes.getDate();
-    }
-
-    if (meses < 0) {
-      años--;
-      meses += 12;
-    }
-
-    const h1 = document.querySelector("h1");
-    h1.textContent = `Feliz ${años} año${años !== 1 ? "s" : ""} y ${meses} mes${meses !== 1 ? "es" : ""}, mi amor 💖`;
-  }
-
-  actualizarTiempoJuntos();
-  // Actualiza cada día automáticamente
-  setInterval(actualizarTiempoJuntos, 1000 * 60 * 60 * 24);
-    
-    const rosesContainer = document.getElementById("roses");
-    const btnMore = document.getElementById("btn-more");
-
-    const flowers = ["🌹", "🌷", "💐", "🌺", "🌸", "💗", "💘"];
-
-    // detectar si es pantalla chica para no saturar
-    const isMobile = window.matchMedia("(max-width: 600px)").matches;
-
-    function createRose() {
-      const rose = document.createElement("div");
-      rose.classList.add("rose");
-      rose.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-      rose.style.left = Math.random() * 100 + "vw";
-      const duration = 6 + Math.random() * 5;
-      rose.style.animationDuration = duration + "s";
-      const size = isMobile ? (1.5 + Math.random() * 1.8) : (2 + Math.random() * 2.6);
-      rose.style.fontSize = size + "rem";
-
-      rosesContainer.appendChild(rose);
-
-      setTimeout(() => {
-        rose.remove();
-      }, duration * 1000 + 120);
-    }
-
-    // generar varias al inicio (menos si es teléfono)
-    const initialCount = isMobile ? 10 : 18;
-    for (let i = 0; i < initialCount; i++) {
-      setTimeout(createRose, i * 350);
-    }
-
-    // botón para más rosas
-    btnMore.addEventListener("click", () => {
-      const extra = isMobile ? 8 : 12;
-      for (let i = 0; i < extra; i++) {
-        setTimeout(createRose, i * 180);
-      }
-    });
-
-    // caída constante
-    setInterval(() => {
-      createRose();
-    }, isMobile ? 1500 : 1200);
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-
