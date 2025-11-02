@@ -83,3 +83,19 @@ async function cargarPoema() {
 
 // Ejecuta cuando cargue la página
 cargarPoema();
+// buzon
+document.getElementById("buzonForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const mensaje = document.getElementById("mensaje").value;
+  const status = document.getElementById("status");
+
+  status.textContent = "Enviando...";
+  const res = await fetch("/api/queja", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mensaje }),
+  });
+
+  const data = await res.json();
+  status.textContent = data.ok ? "💌 Enviada con éxito" : "❌ Error al enviar";
+});
