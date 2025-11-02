@@ -11,7 +11,37 @@
   <div class="heart top-left">💗</div>
   <div class="heart bottom-right">💞</div>
 
-  <h1>Feliz 1 año y 7 meses, mi amor 💖</h1>
+<h1 id="titulo-amor"></h1>
+
+<script>
+  function actualizarTiempo() {
+    const inicio = new Date(2024, 3, 1); // 1 abril 2024 (mes 3 porque enero=0)
+    const ahora = new Date();
+
+    // Cálculo de diferencia
+    let años = ahora.getFullYear() - inicio.getFullYear();
+    let meses = ahora.getMonth() - inicio.getMonth();
+    let dias = ahora.getDate() - inicio.getDate();
+
+    if (dias < 0) {
+      meses--;
+      const mesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate();
+      dias += mesAnterior;
+    }
+    if (meses < 0) {
+      años--;
+      meses += 12;
+    }
+
+    // Mostrar resultado
+    const texto = `Feliz ${años} año${años !== 1 ? 's' : ''} y ${meses} mes${meses !== 1 ? 'es' : ''}, ${dias} día${dias !== 1 ? 's' : ''}, mi amor 💖`;
+    document.getElementById("titulo-amor").textContent = texto;
+  }
+
+  actualizarTiempo();
+  // Actualiza cada día automáticamente (cada 1 hora en milisegundos)
+  setInterval(actualizarTiempo, 1000 * 60 * 60);
+</script>
 
   <div class="card">
     <h2>🌹 Para ti 🌹</h2>
@@ -84,6 +114,7 @@ y mi casualidad más bonita. 💘
   </script>
 </body>
 </html>
+
 
 
 
