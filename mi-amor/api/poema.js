@@ -1,23 +1,30 @@
-import OpenAI from "openai";
-
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // 👈 debe ser exactamente esto
-});
+// 📂 /api/poema.js
 
 export default async function handler(req, res) {
   try {
-    const prompt = "Escribe un poema romántico para mi pareja.";
+    // 🌼 4. Opcional: personalizar
+    // Puedes ajustar el prompt para que sea más específico:
+    // const prompt = "Escribe un poema romántico en español sobre amor verdadero, para dedicarle a mi pareja hoy.";
 
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }],
-    });
+    // Incluso puedes usar la fecha para hacerlo distinto cada día:
+    const fecha = new Date().toLocaleDateString("es-ES", { dateStyle: "long" });
+    const prompt = `Escribe un poema romántico para mi pareja, inspirado en la fecha de hoy (${fecha}).`;
 
-    const poema = completion.choices[0].message.content;
+    // ✨ Llamada a Pollinations.AI (sin API key, totalmente gratis)
+    const response = await fetch(
+      `https://text.pollinations.ai/${encodeURIComponent(prompt)}`
+    );
+
+    if (!response.ok) throw new Error("Error al conectar con Pollinations");
+
+    const poema = await response.text();
+
     res.status(200).json({ poema });
   } catch (error) {
     console.error("Error en /api/poema:", error);
-    res.status(500).json({ error: "Error generando poema" });
+    res.status(200).json({
+      poema:
+        "Hoy no se pudo generar un poema, pero mi amor sigue tan fuerte como siempre 💖",
+    });
   }
 }
-
