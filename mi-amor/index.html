@@ -13,36 +13,6 @@
 
 <h1 id="titulo-amor"></h1>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    function actualizarTiempo() {
-      const inicio = new Date(2024, 3, 1); // 1 abril 2024
-      const ahora = new Date();
-
-      let años = ahora.getFullYear() - inicio.getFullYear();
-      let meses = ahora.getMonth() - inicio.getMonth();
-      let dias = ahora.getDate() - inicio.getDate();
-
-      if (dias < 0) {
-        meses--;
-        const mesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate();
-        dias += mesAnterior;
-      }
-      if (meses < 0) {
-        años--;
-        meses += 12;
-      }
-
-      const texto = `Feliz ${años} año${años !== 1 ? 's' : ''} y ${meses} mes${meses !== 1 ? 'es' : ''}, ${dias} día${dias !== 1 ? 's' : ''}, mi amor 💖`;
-      document.getElementById("titulo-amor").textContent = texto;
-    }
-
-    actualizarTiempo();
-    setInterval(actualizarTiempo, 1000 * 60 * 60);
-  });
-</script>
-
-
   <div class="card">
     <h2>🌹 Para ti 🌹</h2>
     <p>
@@ -68,6 +38,33 @@ y mi casualidad más bonita. 💘
   <div class="roses-container" id="roses"></div>
 
   <script>
+  function actualizarTiempoJuntos() {
+    const inicio = new Date(2023, 3, 1); // Mes 3 = abril (0 = enero)
+    const hoy = new Date();
+
+    let años = hoy.getFullYear() - inicio.getFullYear();
+    let meses = hoy.getMonth() - inicio.getMonth();
+    let dias = hoy.getDate() - inicio.getDate();
+
+    if (dias < 0) {
+      meses--;
+      const ultimoMes = new Date(hoy.getFullYear(), hoy.getMonth(), 0);
+      dias += ultimoMes.getDate();
+    }
+
+    if (meses < 0) {
+      años--;
+      meses += 12;
+    }
+
+    const h1 = document.querySelector("h1");
+    h1.textContent = `Feliz ${años} año${años !== 1 ? "s" : ""} y ${meses} mes${meses !== 1 ? "es" : ""}, mi amor 💖`;
+  }
+
+  actualizarTiempoJuntos();
+  // Actualiza cada día automáticamente
+  setInterval(actualizarTiempoJuntos, 1000 * 60 * 60 * 24);
+    
     const rosesContainer = document.getElementById("roses");
     const btnMore = document.getElementById("btn-more");
 
@@ -114,6 +111,7 @@ y mi casualidad más bonita. 💘
   </script>
 </body>
 </html>
+
 
 
 
