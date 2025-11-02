@@ -46,6 +46,13 @@ h1 {
   text-align: justify;
 }
 
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 .btn-romantico {
   background: linear-gradient(135deg, #ffb6c1, #ff69b4);
   color: white;
@@ -62,7 +69,7 @@ h1 {
   box-shadow: 0 6px 14px rgba(255, 105, 180, 0.6);
 }
 
-/* Animación de rosas */
+/* 🌹 Animación de rosas */
 .roses-container {
   position: fixed;
   inset: 0;
@@ -70,7 +77,6 @@ h1 {
   overflow: hidden;
   z-index: 1;
 }
-
 .rose {
   position: absolute;
   top: -80px;
@@ -83,7 +89,7 @@ h1 {
   100% { transform: translateY(120vh) rotate(180deg); opacity: 0; }
 }
 
-/* Corazones decorativos */
+/* 💗 Corazones decorativos */
 .heart {
   position: fixed;
   font-size: 4.5rem;
@@ -92,4 +98,46 @@ h1 {
 .heart.top-left { top: .1rem; left: .5rem; transform: rotate(-15deg); }
 .heart.bottom-right { bottom: .1rem; right: .3rem; transform: rotate(12deg); }
 
+/* 💬 Modal */
 .hidden { display: none; }
+
+#buzonModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#buzonModal.show {
+  display: flex;
+}
+
+.cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #999;
+}
+.cerrar:hover {
+  color: #555;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  border: 2px solid #f7a1c4;
+  font-family: inherit;
+  resize: none;
+}
+
+.titulo-modal {
+  color: #e6397b;
+  text-align: center;
+  margin-bottom: 1rem;
+}
