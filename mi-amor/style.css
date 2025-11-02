@@ -48,7 +48,7 @@
   margin-top: 0;
   font-weight: 700;
   color: #c51759;
-  display: flex;
+  display: block;
   gap: .4rem;
   align-items: center;
   font-size: 1.1rem;
