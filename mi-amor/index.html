@@ -23,21 +23,26 @@
     </div>
   </div>
   <!-- tarjeta del buzón -->
-<div class="card">
-  <h2>💌 Buzón sincero 💌</h2>
-  <form id="buzonForm" class="flex flex-col gap-3">
+<div class="card buzon-card">
+  <h2>💗 Buzón sincero 💗</h2>
+  <p class="subtexto">
+    Escribe aquí lo que sientas, amor, sin miedo ni filtros 💭  
+    Tus palabras siempre serán escuchadas con cariño 💌
+  </p>
+
+  <form id="buzonForm" class="buzon-form">
     <textarea
       id="mensaje"
-      placeholder="Escribe aquí tu queja sincera o lo que te gustaría decir 💖"
+      placeholder="Escribe aquí tu queja sincera, pensamiento o deseo 💖"
       required
-      class="p-3 border-2 border-pink-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none h-32"
     ></textarea>
-    <div class="acciones flex justify-center">
-      <button type="submit" class="btn-romantico">📨 Enviar</button>
-    </div>
-    <p id="status" class="text-center text-sm text-gray-600"></p>
+    <button type="submit" class="btn-romantico enviar-btn">
+      💌 Enviar
+    </button>
+    <p id="status" class="estado-envio"></p>
   </form>
 </div>
+
 
   <!-- contenedor de rosas -->
   <div id="roses" class="roses-container"></div>
@@ -45,5 +50,6 @@
   <script src="scripts.js"></script>
 </body>
 </html>
+
 
 
