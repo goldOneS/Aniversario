@@ -110,60 +110,59 @@ h1 {
   transition: opacity 0.3s ease;
 }
 
-.modal.hidden {
-  display: none;
+.buzon-card {
+  background: linear-gradient(145deg, #fff0f6, #ffe6f0);
+  border: 2px solid #ffc1d6;
+  box-shadow: 0 10px 25px rgba(255, 145, 180, 0.25);
 }
 
-.modal-content {
-  background: #fff;
-  border-radius: 1.4rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  padding: 1.8rem;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-  animation: aparecer 0.4s ease;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.modal-content h2 {
+.buzon-card h2 {
   color: #d81b60;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.buzon-card .subtexto {
+  color: #8a2c54;
+  font-size: 0.95rem;
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
-.modal-content textarea {
-  width: 100%;
-  height: 120px;
-  border-radius: 12px;
-  border: 2px solid #ffc1d9;
-  padding: 0.8rem;
-  font-family: inherit;
+.buzon-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buzon-form textarea {
+  padding: 1rem;
   font-size: 1rem;
+  border: 2px solid #ffb6c1;
+  border-radius: 1rem;
+  background: #fff;
   resize: none;
-  outline: none;
-  transition: border-color 0.2s ease;
+  height: 130px;
+  color: #701a42;
+  transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-.modal-content textarea:focus {
+.buzon-form textarea:focus {
   border-color: #ff69b4;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.3);
+  outline: none;
 }
 
-.cerrar {
-  position: absolute;
-  top: 0.8rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  color: #888;
-  cursor: pointer;
+.enviar-btn {
+  width: fit-content;
+  align-self: center;
+  padding: 0.8rem 1.6rem;
 }
 
-.cerrar:hover {
-  color: #ff4081;
+.estado-envio {
+  text-align: center;
+  color: #6b2d4a;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
 }
