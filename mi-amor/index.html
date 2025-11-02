@@ -22,6 +22,22 @@
       <button id="btn-more" class="btn-romantico">🌹 Lanzar más rosas</button>
     </div>
   </div>
+  <!-- tarjeta del buzón -->
+<div class="card">
+  <h2>💌 Buzón sincero 💌</h2>
+  <form id="buzonForm" class="flex flex-col gap-3">
+    <textarea
+      id="mensaje"
+      placeholder="Escribe aquí tu queja sincera o lo que te gustaría decir 💖"
+      required
+      class="p-3 border-2 border-pink-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none h-32"
+    ></textarea>
+    <div class="acciones flex justify-center">
+      <button type="submit" class="btn-romantico">📨 Enviar</button>
+    </div>
+    <p id="status" class="text-center text-sm text-gray-600"></p>
+  </form>
+</div>
 
   <!-- contenedor de rosas -->
   <div id="roses" class="roses-container"></div>
@@ -29,3 +45,4 @@
   <script src="scripts.js"></script>
 </body>
 </html>
+
