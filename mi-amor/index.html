@@ -16,11 +16,29 @@
   <div class="card">
     <h2>🌹 Para ti 🌹</h2>
 <p id="poema">Cargando poema de amor... 💌</p>
-<form id="buzonForm">
-  <textarea id="mensaje" placeholder="Escribe tu queja sincera 💬" required></textarea>
-  <button type="submit">Enviar al buzón</button>
-</form>
+<div class="acciones flex gap-4 justify-center items-center mt-8">
+  <button id="botonFlores" class="btn-romantico">🌹 Tirar flores</button>
+  <button id="abrirBuzon" class="btn-romantico">💌 Buzón sincero</button>
+</div>
 
+<!-- Modal del buzón -->
+<div id="buzonModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-11/12 max-w-md relative">
+    <button id="cerrarBuzon" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+    <h2 class="text-2xl font-semibold text-pink-600 text-center mb-4">💬 Buzón Sincero</h2>
+
+    <form id="buzonForm" class="flex flex-col gap-3">
+      <textarea
+        id="mensaje"
+        placeholder="Escribe aquí tu queja sincera o lo que te gustaría decir 💖"
+        required
+        class="p-3 border-2 border-pink-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none h-32"
+      ></textarea>
+      <button type="submit" class="btn-romantico w-full">📨 Enviar</button>
+      <p id="status" class="text-center text-sm text-gray-600"></p>
+    </form>
+  </div>
+</div>
 <p id="status"></p>
     <button class="btn-rosas" id="btn-more">Lanzar más rosas 🌹</button>
   </div>
@@ -32,4 +50,5 @@
   <script src="scripts.js"></script>
 </body>
 </html>
+
 
