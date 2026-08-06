@@ -32,13 +32,29 @@
         <p class="salutation">Querida mi amor,</p>
       </header>
 
-      <section class="photo-block">
-        <figure class="polaroid">
-          <img src="img/1.jpg" alt="Nosotros dos, en un momento cualquiera" />
-          <figcaption>nosotros, en algún momento cualquiera</figcaption>
-        </figure>
-        <h1 class="tiempo-juntos" id="titulo-amor" aria-live="polite"></h1>
-      </section>
+<section class="photo-block">
+    <figure class="polaroid">
+      <img src="img/1.jpg" alt="Nosotros dos, en un momento cualquiera" />
+      <figcaption>nosotros, en algún momento cualquiera</figcaption>
+    </figure>
+    <h1 class="tiempo-juntos" id="titulo-amor" aria-live="polite"></h1>
+  </section>
+
+  <!-- resto del contenido -->
+
+  <script>
+    function ponerImagenAleatoria() {
+      const totalImagenes = 10;
+      const numero = Math.floor(Math.random() * totalImagenes) + 1;
+      const rutaImagen = `img/${numero}.jpg`;
+
+      const img = document.querySelector(".polaroid img");
+      img.src = rutaImagen;
+      img.alt = `Nosotros dos, en un momento cualquiera (${numero})`;
+    }
+
+    document.addEventListener("DOMContentLoaded", ponerImagenAleatoria);
+  </script>
 
       <hr class="fold" />
 
