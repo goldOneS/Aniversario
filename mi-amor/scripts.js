@@ -179,7 +179,7 @@ async function cargarPoema() {
   const poemaEl = document.getElementById("poema");
   if (!poemaEl) return;
   try {
-    const res = await fetch("/api/poema.js");
+    const res = await fetch("/api/poema"); // 👈 sin ".js"
     const data = await res.json();
     poemaEl.textContent = data.poema.trim();
   } catch (err) {
@@ -187,7 +187,6 @@ async function cargarPoema() {
   }
 }
 cargarPoema();
-
 /* ============================================
    BUZÓN SINCERO (vía /api/queja)
    ============================================ */
