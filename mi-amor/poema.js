@@ -1,20 +1,17 @@
 // 📂 /api/poema.js
-
 export default async function handler(req, res) {
   try {
-    // 🌼 Personalización por fecha
-        const fecha = new Date().toLocaleDateString("es-ES", { dateStyle: "long" });
-    const prompt = `Escribe un poema romántico, tierno y en español para mi pareja, inspirado en la fecha de hoy (${fecha}) recuerda no poner ninguna respuesta asi "Claro, aquí tienes un poema romántico y tierno, inspirado en esta fecha especial de noviembre:"`;
+    const fecha = new Date().toLocaleDateString("es-ES", { dateStyle: "long" });
+    const prompt = `Escribe un poema romántico, tierno y en español para mi pareja, inspirado en la fecha de hoy (${fecha}). Responde solo con el poema, sin ninguna introducción ni comentario adicional.`;
 
-    // ✨ Llamada a Pollinations
     const response = await fetch(
-      `https://text.pollinations.ai/${encodeURIComponent(prompt)}`
+      `https://text.pollinations.ai/${encodeURIComponent(prompt)}`,
+      { signal: AbortSignal.timeout(15000) } // evita que se quede colgado si Pollinations tarda
     );
 
-    if (!response.ok) throw new Error("Error al conectar con Pollinations");
+    if (!response.ok) throw new Error(`Pollinations respondió ${response.status}`);
 
     const poema = await response.text();
-
     res.status(200).json({ poema });
   } catch (error) {
     console.error("Error en /api/poema:", error);
@@ -24,6 +21,3 @@ export default async function handler(req, res) {
     });
   }
 }
-
-
-
