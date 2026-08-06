@@ -176,10 +176,10 @@ if (sealBtn) {
    POEMA (vía /api/poema)
    ============================================ */
 async function cargarPoema() {
-  const poemaEl = document.getElementById("poema.js");
+  const poemaEl = document.getElementById("poema");
   if (!poemaEl) return;
   try {
-    const res = await fetch("/api/poema");
+    const res = await fetch("/api/poema.js");
     const data = await res.json();
     poemaEl.textContent = data.poema.trim();
   } catch (err) {
