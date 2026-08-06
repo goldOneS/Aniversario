@@ -176,7 +176,7 @@ if (sealBtn) {
    POEMA (vía /api/poema)
    ============================================ */
 async function cargarPoema() {
-  const poemaEl = document.getElementById("poema");
+  const poemaEl = document.getElementById("poema.js");
   if (!poemaEl) return;
   try {
     const res = await fetch("/api/poema");
